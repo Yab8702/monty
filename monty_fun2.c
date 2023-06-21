@@ -2,11 +2,11 @@
 
 
 /**
- * add - Adds the top two elements of the stack.
+ * _add - Adds the top two elements of the stack.
  * @stack: Double pointer to the head of the stack
  * @line_number: Line number of the opcode
  */
-void add(stack_t **stack, unsigned int line_number)
+void _add(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
@@ -41,12 +41,18 @@ void execute_instruction(char *opcd, stack_t **stack, unsigned int line_number)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
-		{"add", add},
+		{"add", _add},
+		{"sub", _sub},
+		{"mul", _mul},
+		{"div", _div},
+		{"mod", _mod},
 		{"nop", nop},
 		{NULL, NULL}
 	};
 	int i = 0;
 
+	if (opcd[0] == '#')
+		return;
 	while (instructions[i].opcode != NULL)
 	{
 		if (strcmp(opcd, instructions[i].opcode) == 0)
