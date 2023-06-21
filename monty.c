@@ -1,4 +1,6 @@
-#include "main.h"
+#define  _POSIX_C_SOURCE 200809L
+#include <stdio.h>
+#include "monty.h"
 
 /**
  * main - Entry point
@@ -12,7 +14,6 @@ int main(int argc, char *argv[])
 	FILE *file;
 	char *line = NULL;
 	size_t len = 0;
-	ssize_t read;
 	unsigned int line_number = 0;
 	stack_t *stack = NULL;
 	char *opcode;
@@ -28,15 +29,17 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while ((read = getline(&line, &len, file)) != -1)
+	while (getline(&line, &len, file) != -1)
 	{
 		line_number++;
 		opcode = strtok(line, " \t\n");
 		if (opcode != NULL && opcode[0] != '#')
+		{
 			execute_instruction(opcode, &stack, line_number);
+		}
 	}
 	free(line);
 	fclose(file);
-	free_stack(stack);
+	free_stack(&stack);
 	return (EXIT_SUCCESS);
 }

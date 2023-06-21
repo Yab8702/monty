@@ -12,7 +12,7 @@ void push(stack_t **stack, unsigned int line_number)
 	int value;
 	stack_t *new_node;
 
-	if (argument == NULL)
+	if (argument == NULL || !is_integer(argument))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
@@ -47,6 +47,7 @@ void pall(stack_t **stack, unsigned int line_number)
 		printf("%d\n", current->n);
 		current = current->next;
 	}
+	(void)line_number;
 }
 
 /**

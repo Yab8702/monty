@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 
 
 /**
@@ -7,7 +7,7 @@
  *         bottom (queue) of a stack_t.
  */
 
-void free_stack(stack_t *stack)
+void free_stack(stack_t **stack)
 {
 	stack_t *current = *stack;
 	stack_t *temp;
