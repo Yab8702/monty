@@ -1,12 +1,12 @@
 #include "monty.h"
 
 /**
- * push - Pushes an element to the stack.
+ * _push - Pushes an element to the stack.
  * @stack: Double pointer to the head of the stack
  * @line_number: Line number of the opcode
  */
 
-void push(stack_t **stack, unsigned int line_number)
+void _push(stack_t **stack, unsigned int line_number)
 {
 	char *argument = strtok(NULL, " \t\n");
 	int value;
@@ -33,12 +33,12 @@ void push(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pall - Prints all the values on the stack.
+ * _pall - Prints all the values on the stack.
  * @stack: Double pointer to the head of the stack
  * @line_number: Line number of the opcode
  */
 
-void pall(stack_t **stack, unsigned int line_number)
+void _pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
 
@@ -51,12 +51,12 @@ void pall(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pint - Prints the value at the top of the stack.
+ * _pint - Prints the value at the top of the stack.
  * @stack: Double pointer to the head of the stack
  * @line_number: Line number of the opcode
  */
 
-void pint(stack_t **stack, unsigned int line_number)
+void _pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
@@ -67,12 +67,12 @@ void pint(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pop - Removes the top element of the stack.
+ * _pop - Removes the top element of the stack.
  * @stack: Double pointer to the head of the stack
  * @line_number: Line number of the opcode
  */
 
-void pop(stack_t **stack, unsigned int line_number)
+void _pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp;
 
@@ -89,12 +89,12 @@ void pop(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * swap - Swaps the top two elements of the stack.
+ * _swap - Swaps the top two elements of the stack.
  * @stack: Double pointer to the head of the stack
  * @line_number: Line number of the opcode
  */
 
-void swap(stack_t **stack, unsigned int line_number)
+void _swap(stack_t **stack, unsigned int line_number)
 {
 	int temp;
 

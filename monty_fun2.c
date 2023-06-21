@@ -14,14 +14,14 @@ void _add(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	(*stack)->next->n += (*stack)->n;
-	pop(stack, line_number);
+	_pop(stack, line_number);
 }
 /**
- * nop - Does absolutely nothing for the Monty opcode 'nop'.
+ * _nop - Does absolutely nothing for the Monty opcode 'nop'.
  * @stack: A pointer to the top mode node of a stack_t linked list.
  * @line_number: The current working line number of a Monty bytecodes file.
  */
-void nop(stack_t **stack, unsigned int line_number)
+void _nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
@@ -36,17 +36,22 @@ void nop(stack_t **stack, unsigned int line_number)
 void execute_instruction(char *opcd, stack_t **stack, unsigned int line_number)
 {
 	instruction_t instructions[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
+		{"push", _push},
+		{"pall", _pall},
+		{"pint", _pint},
+		{"pop", _pop},
+		{"swap", _swap},
 		{"add", _add},
 		{"sub", _sub},
 		{"mul", _mul},
 		{"div", _div},
-		{"mod", _mod},
-		{"nop", nop},
+		{"pchar", _pchar},
+		{"pstr", _pstr},
+		{"rotl", _rotl},
+		{"rotr", _rotr},
+		{"stack", _stack},
+		{"queue", _queue},
+		{"nop", _nop},
 		{NULL, NULL}
 	};
 	int i = 0;

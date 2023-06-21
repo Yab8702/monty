@@ -17,7 +17,7 @@ void _sub(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	result = (*stack)->next->n - (*stack)->n;
-	pop(stack, line_number);
+	_pop(stack, line_number);
 	(*stack)->n = result;
 }
 
@@ -42,7 +42,7 @@ void _div(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	result = (*stack)->next->n / (*stack)->n;
-	pop(stack, line_number);
+	_pop(stack, line_number);
 	(*stack)->n = result;
 }
 
@@ -62,7 +62,7 @@ void _mul(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	result = (*stack)->next->n * (*stack)->n;
-	pop(stack, line_number);
+	_pop(stack, line_number);
 	(*stack)->n = result;
 }
 
@@ -88,6 +88,18 @@ void _mod(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	result = (*stack)->next->n % (*stack)->n;
-	pop(stack, line_number);
+	_pop(stack, line_number);
 	(*stack)->n = result;
+}
+
+/**
+ * _stack - Sets the format of the data to a stack (LIFO).
+ * @stack: Double pointer to the head of the stack.
+ * @line_number: The line number in the Monty bytecode file.
+ */
+
+void _stack(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
 }
