@@ -34,7 +34,7 @@ void _pstr(stack_t **stack, unsigned int line_number)
 
 	(void)line_number;
 	while (current != NULL && current->n != 0
-			&& current->n >= 0 && current->n <= 127)
+			&& (current->n >= 0 && current->n <= 127))
 	{
 		if (current->n == '\0')
 			break;
@@ -79,6 +79,8 @@ void _rotr(stack_t **stack, unsigned int line_number)
 	stack_t *last = *stack;
 
 	(void)line_number;
+	if (*stack == NULL || (*stack)->next == NULL)
+		return;
 	if (*stack != NULL && (*stack)->next != NULL)
 	{
 		while (last->next != NULL)
